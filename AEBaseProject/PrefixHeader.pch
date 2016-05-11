@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  AEBaseProject
+//
+//  Created by Qian Ye on 16/5/3.
+//  Copyright © 2016年 StarDust. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+
+#import <Availability.h>
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#import <AEAssistant/AEAssistant.h>
+#import "AppDelegate.h"
+#import "GAlertLoadingView.h"
+#import "iToast.h"
+#import "GViewController.h"
+#import "KTCTabBarController.h"
