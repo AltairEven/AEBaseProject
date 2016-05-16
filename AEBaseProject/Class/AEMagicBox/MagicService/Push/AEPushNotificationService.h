@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PushNotificationModel.h"
 
 @class AEPushNotificationService;
 
@@ -18,7 +19,7 @@
 
 @interface AEPushNotificationService : NSObject
 
-@property (nonatomic, assign) id<KTCPushNotificationServiceDelegate> delegate;
+@property (nonatomic, assign) id<AEPushNotificationServiceDelegate> delegate;
 
 @property (nonatomic, strong, readonly) NSString *token;
 

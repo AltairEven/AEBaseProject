@@ -35,6 +35,4 @@ typedef enum {
 
 - (instancetype)initWithRemoteNotificationData:(NSDictionary *)data;
 
-- (CGFloat)cellHeight;
-
 @end

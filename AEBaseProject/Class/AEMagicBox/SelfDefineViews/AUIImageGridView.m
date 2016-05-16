@@ -129,7 +129,7 @@
         if ([object isKindOfClass:[UIImage class]]) {
             [imageView setImage:object];
         } else if ([object isKindOfClass:[NSString class]]) {
-            [imageView sd_setImageWithURL:[NSURL URLWithString:object] placeholderImage:nil];
+            [imageView sd_setImageWithURL:[[NSURL URLWithString:object] revisedUrl] placeholderImage:nil];
         }
         [imageView setTag:index];
         [imageView setUserInteractionEnabled:YES];
@@ -319,7 +319,11 @@
     } else {
         [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, width, self.frame.size.height)];
     }
+    [self resetSubViewsWithType:self.type];
 }
+
+#pragma mark Super methods
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

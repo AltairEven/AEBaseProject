@@ -19,13 +19,13 @@
     }
     self = [super init];
     if (self) {
-        _linkColor = [GToolUtil colorWithString:[param objectForKey:@"color"]];
+        _linkColor = [UIColor colorWithRGBString:[param objectForKey:@"color"]];
         if (!_linkColor) {
             _linkColor = [UIColor blueColor];
         }
         _promotionWords = words;
         _linkWords = [param objectForKey:@"linkKey"];
-        _linkRangeStrings = [GToolUtil rangeStringsOfSubString:self.linkWords inString:self.promotionWords];
+        _linkRangeStrings = [self.promotionWords rangeStringsOfSubString:self.linkWords];
         HomeSegueDestination destination = (HomeSegueDestination)[[param objectForKey:@"linkType"] integerValue];
         if (destination != HomeSegueDestinationNone) {
             _segueModel = [[HomeSegueModel alloc] initWithDestination:destination paramRawData:[param objectForKey:@"params"]];

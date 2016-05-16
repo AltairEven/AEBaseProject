@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AETabBarController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) UIWindow *welcomeWindow;
+
+@property (nonatomic, strong) AETabBarController *tabbarController;
 
 
 @end

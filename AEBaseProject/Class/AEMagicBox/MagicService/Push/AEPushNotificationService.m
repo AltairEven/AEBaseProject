@@ -39,37 +39,8 @@ static AEPushNotificationService *sharedInstance = nil;
 #pragma mark Register
 
 - (void)launchServiceWithOption:(NSDictionary *)launchOptions {
-    //    [XGPush startApp:kXGPushAppId appKey:kXGPushAppKey];
-    
-    //注销之后需要再次注册前的准备
-    void (^successCallback)(void) = ^(void){
-        //如果变成需要注册状态
-        //        if([XGPush isUnRegisterStatus])
-        //        {
-        //            [self registerNotification];
-        //        }
-        [self registerNotification];
-    };
-    [XGPush initForReregister:successCallback];
-    
-    //推送反馈回调版本示例
-    void (^successBlock)(void) = ^(void){
-        //成功之后的处理
-        NSLog(@"[XGPush]handleLaunching's successBlock");
-        [self dealRemoteNotification:launchOptions appState:UIApplicationStateInactive];
-    };
-    
-    void (^errorBlock)(void) = ^(void){
-        //失败之后的处理
-        NSLog(@"[XGPush]handleLaunching's errorBlock");
-    };
-    
     NSDictionary * userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     [self handlePushPayload:userInfo];
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"sss" message:[NSString stringWithFormat:@"%@", launchOptions] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
-    //    [alert show];
-    [XGPush handleLaunching:launchOptions successCallback:successBlock errorCallback:errorBlock];
-    
     
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
@@ -111,22 +82,6 @@ static AEPushNotificationService *sharedInstance = nil;
 }
 
 - (NSString *)registerDevice:(NSData *)deviceToken {
-    //    void (^successBlock)(void) = ^(void){
-    //        //成功之后的处理
-    //        NSLog(@"[XGPush]register successBlock");
-    //    };
-    //
-    //    void (^errorBlock)(void) = ^(void){
-    //        //失败之后的处理
-    //        NSLog(@"[XGPush]register errorBlock");
-    //    };
-    
-    //注册设备
-    [[XGSetting getInstance] setChannel:@"appstore"];
-    [[XGSetting getInstance] setGameServer:@"appstore"];
-    
-    
-    //    NSString * deviceTokenStr = [XGPush registerDevice:deviceToken successCallback:successBlock errorCallback:errorBlock];
     NSString *deviceTokenStr = [NSString stringWithFormat:@"%@", deviceToken];
     deviceTokenStr = [deviceTokenStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     deviceTokenStr = [deviceTokenStr stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
@@ -139,9 +94,7 @@ static AEPushNotificationService *sharedInstance = nil;
 }
 
 - (void)handleRegisterDeviceFailure:(NSError *)error {
-    NSLog(@"Push Register Error:%@", error.description);
-    NSString *errMsg = [NSString stringWithFormat:@"push注册失败，失败原因:%@", error.description];
-    [MTA trackError:errMsg];
+    LOG(@"Push Register Error:%@", error.description);
 }
 
 #pragma mark Account
@@ -155,15 +108,12 @@ static AEPushNotificationService *sharedInstance = nil;
     NSUInteger type = 2;//解绑
     if (bind) {
         type = 1;//绑定
-        [XGPush setAccount:[KTCUser currentUser].uid];
-    } else {
-        //        [XGPush setAccount:@"*"];
     }
     if ([self.token length] == 0) {
         _token = [[NSUserDefaults standardUserDefaults] objectForKey:kDeviceToken];
     }
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:type], @"type", self.token, @"deviceId", nil];
-    __weak KTCPushNotificationService *weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     [weakSelf.setAccountRequest startHttpRequestWithParameter:param success:^(HttpRequestClient *client, NSDictionary *responseData) {
         NSLog(@"Push Set Account:%@", responseData);
     } failure:^(HttpRequestClient *client, NSError *error) {
@@ -174,8 +124,6 @@ static AEPushNotificationService *sharedInstance = nil;
 #pragma mark Handle Notification
 
 - (void)handleApplication:(UIApplication *)application withReceivedNotification:(NSDictionary *)userInfo {
-    [XGPush handleReceiveNotification:userInfo];
-    
     UIApplicationState state = [application applicationState];
     [self dealRemoteNotification:userInfo appState:state];
 }
@@ -193,10 +141,10 @@ static AEPushNotificationService *sharedInstance = nil;
         }];
         [controller addAction:leftAction];
         [controller addAction:rightAction];
-        [[KTCTabBarController shareTabBarController] presentViewController:controller animated:YES completion:nil];
+        [[AETabBarController sharedTabBarController] presentViewController:controller animated:YES completion:nil];
     } else {
         AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        if([app.window.rootViewController isKindOfClass:[KTCTabBarController class]]) {
+        if([app.window.rootViewController isKindOfClass:[AETabBarController class]]) {
             [self handlePushPayload:payload];
         } else {
             //程序正在启动
@@ -230,7 +178,7 @@ static AEPushNotificationService *sharedInstance = nil;
         [self.checkUnreadRequest cancel];
     }
     
-    __weak KTCPushNotificationService *weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     [weakSelf.checkUnreadRequest startHttpRequestWithParameter:nil success:^(HttpRequestClient *client, NSDictionary *responseData) {
         NSUInteger unreadCount = [weakSelf checkUnreadMessageSucceed:responseData];
         if (succeed) {
@@ -268,12 +216,12 @@ static AEPushNotificationService *sharedInstance = nil;
     }
     NSUInteger count = [[countDic objectForKey:@"count"] integerValue];
     _unreadCount = count;
-    NSUInteger tabCount = [[KTCTabBarController shareTabBarController] tabCount];
+    NSUInteger tabCount = [[AETabBarController sharedTabBarController] tabCount];
     if (count == 0) {
-        [[KTCTabBarController shareTabBarController] setBadge:nil forTabIndex:tabCount - 1];
+        [[AETabBarController sharedTabBarController] setBadge:nil forTabIndex:tabCount - 1];
     } else {
         //        NSString *badgeString = [NSString stringWithFormat:@"%lu", (unsigned long)count];
-        [[KTCTabBarController shareTabBarController] setBadge:@"" forTabIndex:tabCount - 1];
+        [[AETabBarController sharedTabBarController] setBadge:@"" forTabIndex:tabCount - 1];
     }
     return count;
 }

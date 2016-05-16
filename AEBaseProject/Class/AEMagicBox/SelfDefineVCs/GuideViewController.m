@@ -139,46 +139,6 @@ const CGFloat multiplierDistance = 0.3;
     [self updateViewBottomDistance:self.bottomDistance updateView:self.finishBtn class:[UIButton class]];
 }
 
-
-/*-(void) setViewBackgroundImage:(NSString*)imageName forImageView:(UIImageView*) imageView
-                    imageWidth:(CGFloat)imageWidth imageHeight:(CGFloat)imageHeight topDistance:(CGFloat)topDistance{
-    imageView.image =[UIImage imageNamed:imageName];
-}
-
-
--(void) updateViewHeight:(CGFloat)viewHeight updateView:(UIImageView* )updateView{
-    NSArray * constraints = updateView.constraints;
-    for (NSLayoutConstraint* constraint  in constraints) {
-        if ([constraint.firstItem isKindOfClass:[UIImageView class]] && constraint.secondItem == nil && constraint.firstAttribute == NSLayoutAttributeHeight) {
-            constraint.constant = viewHeight;
-            break;
-        }
-    }
-}
-
--(void) updateViewWidth:(CGFloat)viewWidth updateView:(UIImageView* )updateView{
-    NSArray * constraints = updateView.constraints;
-    for (NSLayoutConstraint* constraint  in constraints) {
-        if ([constraint.firstItem isKindOfClass:[UIImageView class]] && constraint.secondItem == nil && constraint.firstAttribute == NSLayoutAttributeWidth) {
-            constraint.constant = viewWidth;
-            break;
-        }
-    }
-}
-
--(void) updateViewTopDistance:(CGFloat)viewTopDistance updateView:(UIImageView* )updateView{
-    NSArray * constraints = updateView.superview.constraints;
-    for (NSLayoutConstraint* constraint  in constraints) {
-        NSLog(@"约束：%@",constraint);
-        if ([constraint.firstItem isKindOfClass:[UIImageView class]]
-            && constraint.secondAttribute == NSLayoutAttributeTop) {
-            constraint.constant = viewTopDistance;
-            break;
-        }
-    }
-}
-*/
-
 /**
  *  更新pageControl和底部的距离
  *

@@ -61,12 +61,4 @@
     return self;
 }
 
-- (CGFloat)cellHeight {
-    CGFloat height = 27;
-    
-    height += [GConfig heightForLabelWithWidth:SCREEN_WIDTH - 45 LineBreakMode:NSLineBreakByCharWrapping Font:[UIFont systemFontOfSize:12] topGap:10 bottomGap:10 andText:self.content];
-    
-    return height;
-}
-
 @end

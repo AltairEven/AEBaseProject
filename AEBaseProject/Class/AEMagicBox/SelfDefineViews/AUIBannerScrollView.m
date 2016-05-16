@@ -373,7 +373,7 @@ UIVIEW_INIT_WITHXIB(AUIBannerScrollView)
         UIImageView *imageView = [self.imageViewsArray objectAtIndex:pIndex];
         imageView.tag = iIndex;
         if (needUrl) {
-            [imageView sd_setImageWithURL:imageUrl];
+            [imageView sd_setImageWithURL:[imageUrl revisedUrl]];
         } else if (image && [image isKindOfClass:[UIImage class]]) {
             [imageView setImage:image];
         }
