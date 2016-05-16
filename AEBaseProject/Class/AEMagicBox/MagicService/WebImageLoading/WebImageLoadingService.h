@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define REVISEFLAG (@"WebImageLoadingStrategyRevised")
 
 typedef enum {
     WebImageLoadingStrategyNoLoad = 1 << 0,

@@ -27,8 +27,6 @@
 
 - (void)fullFillSuperMethods;
 
-- (void)superSelectedButtonTapped:(id)sender;
-
 - (void)configSelection;
 
 @end
@@ -181,32 +179,29 @@
 }
 
 - (void)fullFillSuperMethods {
-    //select button
-    unsigned int count = 0;
-    Method *superMethods = class_copyMethodList([MWPhotoBrowser class], &count);
-    IMP superImp = nil;
-    for (unsigned int i = 0; i < count; i ++) {
-        Method method = superMethods[i];
-        SEL selector = method_getName(method);
-        NSString *methodName = [NSString stringWithUTF8String:sel_getName(selector)];
-        if ([methodName isEqualToString:@"selectedButtonTapped:"]) {
-            superImp = class_getMethodImplementation([MWPhotoBrowser class], selector);
-            break;
-        }
+    //判断方法的有效性
+    if (!class_respondsToSelector([MWPhotoBrowser class], @selector(selectedButtonTapped:))) {
     }
-    Method *oldMethods = class_copyMethodList([AUIPhotoBrowserViewController class], &count);
-    if (superImp) {
-        for (unsigned int i = 0; i < count; i ++) {
-            Method method = oldMethods[i];
-            SEL selector = method_getName(method);
-            NSString *methodName = [NSString stringWithUTF8String:sel_getName(selector)];
-            if ([methodName isEqualToString:@"superSelectedButtonTapped:"]) {
-                IMP oldImp = method_setImplementation(method, superImp);
-                NSLog(@"%p", oldImp);
-                break;
-            }
-        }
+    //先复制一份旧方法实现
+    Method oldMethod = class_getInstanceMethod([MWPhotoBrowser class], @selector(selectedButtonTapped:));
+    if (!oldMethod) {
+        return;
     }
+    
+    //然后交换新旧方法实现
+    Method freshMethod = class_getInstanceMethod([self class], @selector(selectedButtonTapped:));
+    method_exchangeImplementations(oldMethod, freshMethod);
+}
+
+- (void)selectedButtonTapped:(id)sender {
+    UIButton *selectedButton = (UIButton *)sender;
+    if (!selectedButton.selected && self.selectedCount >= self.maxSelectCount) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(photoBrowserDidReachedMaxSelection:)]) {
+            [self.delegate photoBrowserDidReachedMaxSelection:self];
+        }
+        return;
+    }
+    [self selectedButtonTapped:sender];
 }
 
 - (void)configSelection {
@@ -238,21 +233,6 @@
         UIBarButtonItem *privateButton = [[UIBarButtonItem alloc] initWithCustomView:self.countLabel];
         object_setIvar(self, buttonVar, privateButton);
     }
-}
-
-- (void)selectedButtonTapped:(id)sender {
-    UIButton *selectedButton = (UIButton *)sender;
-    if (!selectedButton.selected && self.selectedCount >= self.maxSelectCount) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(photoBrowserDidReachedMaxSelection:)]) {
-            [self.delegate photoBrowserDidReachedMaxSelection:self];
-        }
-        return;
-    }
-    [self superSelectedButtonTapped:sender];
-}
-
-- (void)superSelectedButtonTapped:(id)sender {
-    NSLog(@"This is a super methods");
 }
 
 #pragma mark Public methods
