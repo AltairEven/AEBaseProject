@@ -160,7 +160,7 @@ static AEPushNotificationService *sharedInstance = nil;
 
 - (void)handlePushPayload:(NSDictionary *)payload {
     PushNotificationModel *model = [[PushNotificationModel alloc] initWithRemoteNotificationData:payload];
-    if (!model || model.segueModel.destination == HomeSegueDestinationNone) {
+    if (!model || model.segueModel.destination == AESegueDestinationNone) {
         return;
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(didRecievedRemoteNotificationWithModel:)]) {

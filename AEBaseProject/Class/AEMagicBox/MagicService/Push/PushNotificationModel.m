@@ -24,12 +24,12 @@
         self.status = (PushNotificationStatus)[[data objectForKey:@"status"] integerValue];
         NSDictionary *dic = [data objectForKey:@"dic"];
         if ([dic isKindOfClass:[NSDictionary class]]) {
-            HomeSegueDestination dest = (HomeSegueDestination)[[dic objectForKey:@"linkType"] integerValue];
-            if (dest != HomeSegueDestinationNone) {
+            AESegueDestination dest = (AESegueDestination)[[dic objectForKey:@"linkType"] integerValue];
+            if (dest != AESegueDestinationNone) {
                 NSString *paramString = [dic objectForKey:@"params"];
                 NSData *paramData = [paramString dataUsingEncoding:NSUTF8StringEncoding];
                 NSDictionary *paramDic = [NSJSONSerialization JSONObjectWithData:paramData options:NSJSONReadingAllowFragments error:nil];
-                self.segueModel = [[HomeSegueModel alloc] initWithDestination:dest paramRawData:paramDic];
+                self.segueModel = [[AESegueModel alloc] initWithDestination:dest paramRawData:paramDic];
             }
         }
     }
@@ -50,12 +50,12 @@
         NSDictionary *content = [NSJSONSerialization JSONObjectWithData:paramData options:NSJSONReadingAllowFragments error:nil];
         
         self.createTimeDescription = [content objectForKey:@"pushtime"];
-        HomeSegueDestination dest = (HomeSegueDestination)[[content objectForKey:@"linkType"] integerValue];
-        if (dest != HomeSegueDestinationNone) {
+        AESegueDestination dest = (AESegueDestination)[[content objectForKey:@"linkType"] integerValue];
+        if (dest != AESegueDestinationNone) {
             NSString *paramString = [content objectForKey:@"params"];
             NSData *paramData = [paramString dataUsingEncoding:NSUTF8StringEncoding];
             NSDictionary *paramDic = [NSJSONSerialization JSONObjectWithData:paramData options:NSJSONReadingAllowFragments error:nil];
-            self.segueModel = [[HomeSegueModel alloc] initWithDestination:dest paramRawData:paramDic];
+            self.segueModel = [[AESegueModel alloc] initWithDestination:dest paramRawData:paramDic];
         }
     }
     return self;

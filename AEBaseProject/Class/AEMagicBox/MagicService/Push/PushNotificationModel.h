@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HomeSegueModel.h"
+#import "AESegueModel.h"
 
 typedef enum {
     PushNotificationStatusUnknow = 0,
@@ -29,7 +29,7 @@ typedef enum {
 
 @property (nonatomic, assign) PushNotificationStatus status;
 
-@property (nonatomic, strong) HomeSegueModel *segueModel;
+@property (nonatomic, strong) AESegueModel *segueModel;
 
 - (instancetype)initWithRawData:(NSDictionary *)data;
 

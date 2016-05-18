@@ -10,8 +10,8 @@
 
 @implementation AESegueMaster
 
-+ (UIViewController *)makeSegueWithModel:(HomeSegueModel *)model fromController:(UIViewController *)fromVC {
-    if (!model || ![model isKindOfClass:[HomeSegueModel class]]) {
++ (UIViewController *)makeSegueWithModel:(AESegueModel *)model fromController:(UIViewController *)fromVC {
+    if (!model || ![model isKindOfClass:[AESegueModel class]]) {
         return nil;
     }
     if (!fromVC || ![fromVC isKindOfClass:[UIViewController class]] || !fromVC.navigationController) {
@@ -19,10 +19,10 @@
     }
     UIViewController *toController = nil;
     switch (model.destination) {
-        case HomeSegueDestinationH5:
+        case AESegueDestinationH5:
         {
             AEWebViewController *controller = [[AEWebViewController alloc] init];
-            [controller setWebUrlString:[model.segueParam objectForKey:kHomeSegueParameterKeyLinkUrl]];
+            [controller setWebUrlString:[model.segueParam objectForKey:kAESegueParameterKeyLinkUrl]];
             [controller setHidesBottomBarWhenPushed:YES];
             toController = controller;
         }

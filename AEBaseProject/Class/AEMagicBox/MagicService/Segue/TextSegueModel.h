@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HomeSegueModel.h"
+#import "AESegueModel.h"
 
 @interface TextSegueModel : NSObject
 
 @property (nonatomic, copy, readonly) NSString *linkWords;
 
-@property (nonatomic, strong, readonly) HomeSegueModel *segueModel;
+@property (nonatomic, strong, readonly) AESegueModel *segueModel;
 
 @property (nonatomic, copy, readonly) NSString *promotionWords;
 

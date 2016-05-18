@@ -1,25 +1,25 @@
 //
-//  HomeSegueModel.m
-//  KidsTC
+//  AESegueModel.m
+//  AEBaseProject
 //
-//  Created by 钱烨 on 10/10/15.
-//  Copyright © 2015 KidsTC. All rights reserved.
+//  Created by Qian Ye on 16/5/18.
+//  Copyright © 2016年 StarDust. All rights reserved.
 //
 
-#import "HomeSegueModel.h"
+#import "AESegueModel.h"
 
 //H5
-NSString *const kHomeSegueParameterKeyLinkUrl = @"kHomeSegueParameterKeyLinkUrl";
+NSString *const kAESegueParameterKeyLinkUrl = @"kAESegueParameterKeyLinkUrl";
 
-@interface HomeSegueModel ()
+@interface AESegueModel ()
 
 - (void)fillSegueParamWithData:(NSDictionary *)data;
 
 @end
 
-@implementation HomeSegueModel
+@implementation AESegueModel
 
-- (instancetype)initWithDestination:(HomeSegueDestination)destination {
+- (instancetype)initWithDestination:(AESegueDestination)destination {
     self = [super init];
     if (self) {
         _destination = destination;
@@ -27,7 +27,7 @@ NSString *const kHomeSegueParameterKeyLinkUrl = @"kHomeSegueParameterKeyLinkUrl"
     return self;
 }
 
-- (instancetype)initWithDestination:(HomeSegueDestination)destination paramRawData:(NSDictionary *)data {
+- (instancetype)initWithDestination:(AESegueDestination)destination paramRawData:(NSDictionary *)data {
     self = [super init];
     if (self) {
         _destination = destination;
@@ -39,19 +39,19 @@ NSString *const kHomeSegueParameterKeyLinkUrl = @"kHomeSegueParameterKeyLinkUrl"
 
 - (void)fillSegueParamWithData:(NSDictionary *)data {
     switch (self.destination) {
-        case HomeSegueDestinationNone:
+        case AESegueDestinationNone:
             break;
-        case HomeSegueDestinationH5:
+        case AESegueDestinationH5:
         {
             if ([data isKindOfClass:[NSDictionary class]]) {
                 NSString *linkUrlString = [data objectForKey:@"linkUrl"];
                 if (linkUrlString && [linkUrlString isKindOfClass:[NSString class]]) {
-                    _segueParam = [NSDictionary dictionaryWithObject:linkUrlString forKey:kHomeSegueParameterKeyLinkUrl];
+                    _segueParam = [NSDictionary dictionaryWithObject:linkUrlString forKey:kAESegueParameterKeyLinkUrl];
                 } else {
-                    _destination = HomeSegueDestinationNone;
+                    _destination = AESegueDestinationNone;
                 }
             } else {
-                _destination = HomeSegueDestinationNone;
+                _destination = AESegueDestinationNone;
             }
         }
             break;

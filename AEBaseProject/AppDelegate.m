@@ -11,6 +11,7 @@
 #import "LoadingViewController.h"
 #import "AEPushNotificationService.h"
 #import "VersionManager.h"
+#import "ApplicationSettingManager.h"
 
 static BOOL _alreadyLaunched = NO;
 
@@ -31,7 +32,7 @@ static BOOL _alreadyLaunched = NO;
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[WebImageLoadingService sharedInstance] setLoadingStrategy:WebImageLoadingStrategyAllLoad];
+//    [[WebImageLoadingService sharedInstance] setLoadingStrategy:WebImageLoadingStrategyAllLoad];
     
     AEReachability *manager = [AEReachability sharedInstance];
     [manager startNetworkMonitoringWithStatusChangeBlock:^ (AENetworkStatus status) {
@@ -47,11 +48,15 @@ static BOOL _alreadyLaunched = NO;
     AETabBarController *tabbar = [AETabBarController sharedTabBarController];
     [tabbar  createViewControllers];
     self.window.rootViewController = tabbar;
-    //show user role select
+    //show welcome
     [self showWelcome];
     //    //处理通知
 //    [AEPushNotificationService sharedService].delegate = self;
 //    [[AEPushNotificationService sharedService] launchServiceWithOption:launchOptions];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [ApplicationInfoManager setupApplicationInfo];
+    });
     
     return YES;
 }

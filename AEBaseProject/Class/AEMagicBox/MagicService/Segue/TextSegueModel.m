@@ -26,9 +26,9 @@
         _promotionWords = words;
         _linkWords = [param objectForKey:@"linkKey"];
         _linkRangeStrings = [self.promotionWords rangeStringsOfSubString:self.linkWords];
-        HomeSegueDestination destination = (HomeSegueDestination)[[param objectForKey:@"linkType"] integerValue];
-        if (destination != HomeSegueDestinationNone) {
-            _segueModel = [[HomeSegueModel alloc] initWithDestination:destination paramRawData:[param objectForKey:@"params"]];
+        AESegueDestination destination = (AESegueDestination)[[param objectForKey:@"linkType"] integerValue];
+        if (destination != AESegueDestinationNone) {
+            _segueModel = [[AESegueModel alloc] initWithDestination:destination paramRawData:[param objectForKey:@"params"]];
         }
     }
     return self;

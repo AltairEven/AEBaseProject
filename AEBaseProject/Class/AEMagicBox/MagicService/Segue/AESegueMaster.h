@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HomeSegueModel.h"
+#import "AESegueModel.h"
 
 #define NotificationSegueTag (100001)
 
 @interface AESegueMaster : NSObject
 
-+ (UIViewController *)makeSegueWithModel:(HomeSegueModel *)model fromController:(UIViewController *)fromVC;
++ (UIViewController *)makeSegueWithModel:(AESegueModel *)model fromController:(UIViewController *)fromVC;
 
 @end

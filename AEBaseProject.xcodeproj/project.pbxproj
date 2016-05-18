@@ -15,7 +15,6 @@
 		1E0B9F0A1CE475850050DB7E /* AEPushNotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9E441CE475840050DB7E /* AEPushNotificationService.m */; };
 		1E0B9F0B1CE475850050DB7E /* PushNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9E461CE475840050DB7E /* PushNotificationModel.m */; };
 		1E0B9F0C1CE475850050DB7E /* AESegueMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9E491CE475840050DB7E /* AESegueMaster.m */; };
-		1E0B9F0D1CE475850050DB7E /* HomeSegueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9E4B1CE475840050DB7E /* HomeSegueModel.m */; };
 		1E0B9F0E1CE475850050DB7E /* TextSegueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9E4D1CE475840050DB7E /* TextSegueModel.m */; };
 		1E0B9F0F1CE475850050DB7E /* CommonShareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9E501CE475840050DB7E /* CommonShareObject.m */; };
 		1E0B9F101CE475850050DB7E /* CommonShareService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9E521CE475840050DB7E /* CommonShareService.m */; };
@@ -103,6 +102,11 @@
 		1E0B9F621CE475850050DB7E /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9F011CE475850050DB7E /* FirstViewController.m */; };
 		1E0B9F631CE475850050DB7E /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0B9F021CE475850050DB7E /* FirstViewController.xib */; };
 		1E0B9F6A1CE476F50050DB7E /* WebImageLoadingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0B9F681CE476F50050DB7E /* WebImageLoadingService.m */; };
+		1E3845301CEC63F8009709F3 /* AESegueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E38452F1CEC63F8009709F3 /* AESegueModel.m */; };
+		1E3846AF1CEC7698009709F3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1E3846AE1CEC7698009709F3 /* Settings.bundle */; };
+		1E3846B71CEC76B4009709F3 /* ApplicationInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3846B21CEC76B4009709F3 /* ApplicationInfoManager.m */; };
+		1E3846B81CEC76B4009709F3 /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3846B41CEC76B4009709F3 /* ApplicationServiceManager.m */; };
+		1E3846B91CEC76B4009709F3 /* ApplicationSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3846B61CEC76B4009709F3 /* ApplicationSettingManager.m */; };
 		1EAAC2941CD835D70005A4F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAC2931CD835D70005A4F7 /* main.m */; };
 		1EAAC2971CD835D70005A4F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAC2961CD835D70005A4F7 /* AppDelegate.m */; };
 		1EAAC29F1CD835D70005A4F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EAAC29E1CD835D70005A4F7 /* Assets.xcassets */; };
@@ -136,8 +140,6 @@
 		1E0B9E461CE475840050DB7E /* PushNotificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushNotificationModel.m; sourceTree = "<group>"; };
 		1E0B9E481CE475840050DB7E /* AESegueMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESegueMaster.h; sourceTree = "<group>"; };
 		1E0B9E491CE475840050DB7E /* AESegueMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESegueMaster.m; sourceTree = "<group>"; };
-		1E0B9E4A1CE475840050DB7E /* HomeSegueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSegueModel.h; sourceTree = "<group>"; };
-		1E0B9E4B1CE475840050DB7E /* HomeSegueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSegueModel.m; sourceTree = "<group>"; };
 		1E0B9E4C1CE475840050DB7E /* TextSegueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSegueModel.h; sourceTree = "<group>"; };
 		1E0B9E4D1CE475840050DB7E /* TextSegueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSegueModel.m; sourceTree = "<group>"; };
 		1E0B9E4F1CE475840050DB7E /* CommonShareObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonShareObject.h; sourceTree = "<group>"; };
@@ -300,6 +302,15 @@
 		1E0B9F021CE475850050DB7E /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		1E0B9F671CE476F50050DB7E /* WebImageLoadingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageLoadingService.h; sourceTree = "<group>"; };
 		1E0B9F681CE476F50050DB7E /* WebImageLoadingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageLoadingService.m; sourceTree = "<group>"; };
+		1E38452E1CEC63F8009709F3 /* AESegueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESegueModel.h; sourceTree = "<group>"; };
+		1E38452F1CEC63F8009709F3 /* AESegueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESegueModel.m; sourceTree = "<group>"; };
+		1E3846AE1CEC7698009709F3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		1E3846B11CEC76B4009709F3 /* ApplicationInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationInfoManager.h; sourceTree = "<group>"; };
+		1E3846B21CEC76B4009709F3 /* ApplicationInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationInfoManager.m; sourceTree = "<group>"; };
+		1E3846B31CEC76B4009709F3 /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
+		1E3846B41CEC76B4009709F3 /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
+		1E3846B51CEC76B4009709F3 /* ApplicationSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationSettingManager.h; sourceTree = "<group>"; };
+		1E3846B61CEC76B4009709F3 /* ApplicationSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationSettingManager.m; sourceTree = "<group>"; };
 		1EAAC28F1CD835D70005A4F7 /* AEBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAAC2931CD835D70005A4F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1EAAC2951CD835D70005A4F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -373,6 +384,7 @@
 				1E0B9E3B1CE475840050DB7E /* Payment */,
 				1E0B9E421CE475840050DB7E /* Push */,
 				1E0B9E471CE475840050DB7E /* Segue */,
+				1E3846B01CEC76B4009709F3 /* SettingBundle */,
 				1E0B9E4E1CE475840050DB7E /* Share */,
 				1E0B9E551CE475840050DB7E /* Social */,
 				1E0B9E5C1CE475840050DB7E /* Version */,
@@ -427,8 +439,8 @@
 			children = (
 				1E0B9E481CE475840050DB7E /* AESegueMaster.h */,
 				1E0B9E491CE475840050DB7E /* AESegueMaster.m */,
-				1E0B9E4A1CE475840050DB7E /* HomeSegueModel.h */,
-				1E0B9E4B1CE475840050DB7E /* HomeSegueModel.m */,
+				1E38452E1CEC63F8009709F3 /* AESegueModel.h */,
+				1E38452F1CEC63F8009709F3 /* AESegueModel.m */,
 				1E0B9E4C1CE475840050DB7E /* TextSegueModel.h */,
 				1E0B9E4D1CE475840050DB7E /* TextSegueModel.m */,
 			);
@@ -769,6 +781,19 @@
 			path = WebImageLoading;
 			sourceTree = "<group>";
 		};
+		1E3846B01CEC76B4009709F3 /* SettingBundle */ = {
+			isa = PBXGroup;
+			children = (
+				1E3846B11CEC76B4009709F3 /* ApplicationInfoManager.h */,
+				1E3846B21CEC76B4009709F3 /* ApplicationInfoManager.m */,
+				1E3846B31CEC76B4009709F3 /* ApplicationServiceManager.h */,
+				1E3846B41CEC76B4009709F3 /* ApplicationServiceManager.m */,
+				1E3846B51CEC76B4009709F3 /* ApplicationSettingManager.h */,
+				1E3846B61CEC76B4009709F3 /* ApplicationSettingManager.m */,
+			);
+			path = SettingBundle;
+			sourceTree = "<group>";
+		};
 		1EAAC2861CD835D60005A4F7 = {
 			isa = PBXGroup;
 			children = (
@@ -811,6 +836,7 @@
 		1EAAC4E91CD8ADF70005A4F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E3846AE1CEC7698009709F3 /* Settings.bundle */,
 				1EAAC5B91CD9871F0005A4F7 /* CoreMotion.framework */,
 				1EAAC5B71CD987050005A4F7 /* libstdc++.6.0.9.tbd */,
 				1EAAC5B31CD986EA0005A4F7 /* libsqlite3.0.tbd */,
@@ -896,6 +922,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E0B9F5F1CE475850050DB7E /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				1E3846AF1CEC7698009709F3 /* Settings.bundle in Resources */,
 				1E0B9F631CE475850050DB7E /* FirstViewController.xib in Resources */,
 				1E0B9F301CE475850050DB7E /* AddressSelectTableViewCell.xib in Resources */,
 				1E0B9F471CE475850050DB7E /* KTCActionView.xib in Resources */,
@@ -936,16 +963,17 @@
 				1E0B9F3C1CE475850050DB7E /* AUIStackView.m in Sources */,
 				1E0B9F3D1CE475850050DB7E /* FiveStarsView.m in Sources */,
 				1E0B9F6A1CE476F50050DB7E /* WebImageLoadingService.m in Sources */,
+				1E3846B91CEC76B4009709F3 /* ApplicationSettingManager.m in Sources */,
 				1E0B9F0A1CE475850050DB7E /* AEPushNotificationService.m in Sources */,
 				1E0B9F031CE475850050DB7E /* AdditionalTabBarItemManager.m in Sources */,
 				1E0B9F361CE475850050DB7E /* AUIKeyboardAdhesiveView.m in Sources */,
-				1E0B9F0D1CE475850050DB7E /* HomeSegueModel.m in Sources */,
 				1E0B9F3F1CE475850050DB7E /* GActivityIndicatorView.m in Sources */,
 				1E0B9F3E1CE475850050DB7E /* FlipView.m in Sources */,
 				1E0B9F371CE475850050DB7E /* AUILinearView.m in Sources */,
 				1E0B9F421CE475850050DB7E /* HeaderRefreshView.m in Sources */,
 				1E0B9F0E1CE475850050DB7E /* TextSegueModel.m in Sources */,
 				1E0B9F2A1CE475850050DB7E /* MWPhotoBrowser.m in Sources */,
+				1E3846B81CEC76B4009709F3 /* ApplicationServiceManager.m in Sources */,
 				1E0B9F341CE475850050DB7E /* AUIFloorNavigationView.m in Sources */,
 				1E0B9F4E1CE475850050DB7E /* TiledImageView.m in Sources */,
 				1E0B9F4D1CE475850050DB7E /* StepperView.m in Sources */,
@@ -977,7 +1005,9 @@
 				1E0B9F191CE475850050DB7E /* AEWebViewController.m in Sources */,
 				1E0B9F251CE475850050DB7E /* MWCaptionView.m in Sources */,
 				1E0B9F621CE475850050DB7E /* FirstViewController.m in Sources */,
+				1E3845301CEC63F8009709F3 /* AESegueModel.m in Sources */,
 				1E0B9F0F1CE475850050DB7E /* CommonShareObject.m in Sources */,
+				1E3846B71CEC76B4009709F3 /* ApplicationInfoManager.m in Sources */,
 				1E0B9F311CE475850050DB7E /* AnimedBtn.m in Sources */,
 				1E0B9F491CE475850050DB7E /* MultiSelView.m in Sources */,
 				1E0B9F4B1CE475850050DB7E /* PlaceHolderTextView.m in Sources */,
@@ -1118,6 +1148,7 @@
 					"$(PROJECT_DIR)/AEBaseProject/Class/AEMagicBox/ThirdParty/WeChatSDK",
 				);
 				OTHER_LDFLAGS = (
+					"-lstdc++",
 					"-ObjC",
 					"-licucore",
 				);
@@ -1152,6 +1183,7 @@
 					"$(PROJECT_DIR)/AEBaseProject/Class/AEMagicBox/ThirdParty/WeChatSDK",
 				);
 				OTHER_LDFLAGS = (
+					"-lstdc++",
 					"-ObjC",
 					"-licucore",
 				);
